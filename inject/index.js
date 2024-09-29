@@ -8,7 +8,7 @@
         if (window.location.href.includes('vk.com'))
             darkStyle.textContent = `img, video { opacity: ${opacity}; } a:empty { opacity: ${opacity} }`
         else {
-            darkStyle.textContent = `img { opacity: ${opacity}; }`
+            darkStyle.textContent = `img, video { opacity: ${opacity}; }`
              + `div[data-testid="tweetPhoto"] { opacity: ${opacity} }`
              + `div[data-testid="videoPlayer"] { opacity: ${opacity} }`
              + `div[data-testid="card.layoutLarge.media"] { opacity: ${opacity} }`
