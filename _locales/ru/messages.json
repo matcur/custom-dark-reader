@@ -65,6 +65,9 @@
     "brightness": {
         "message": "Яркость"
     },
+    "videoOpacity": {
+        "message": "Прозрачность видео"
+    },
     "contrast": {
         "message": "Контрастность"
     },
