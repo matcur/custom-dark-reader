@@ -1,23 +1,6 @@
 (function () {
     "use strict";
 
-    function createCustomDark() {
-        var darkStyle = document.createElement('style')
-        const opacity = 0.3
-        darkStyle.id = 'custom-dark'
-        if (window.location.href.includes('vk.com'))
-            darkStyle.textContent = `img, video { opacity: ${opacity}; } a:empty { opacity: ${opacity} }`
-        else {
-            darkStyle.textContent = `img, video { opacity: ${opacity}; }`
-             + `div[data-testid="tweetPhoto"] { opacity: ${opacity} }`
-             + `div[data-testid="videoPlayer"] { opacity: ${opacity} }`
-             + `div[data-testid="card.layoutLarge.media"] { opacity: ${opacity} }`
-             + `div[aria-label="Изображение"] { opacity: ${opacity} }`
-             + `div[aria-label="Image"] { opacity: ${opacity} }`
-        }
-        document.head.appendChild(darkStyle)
-    }
-
     function logInfo(...args) {}
     function logWarn(...args) {}
 
@@ -1922,6 +1905,11 @@
                 theme
             )};`
         );
+        lines.push(
+          `video {
+            opacity: ${theme.videoOpacity / 100};
+          }`
+        )
         lines.push("}");
         lines.push(
             `html, body, ${
@@ -5212,7 +5200,6 @@
     }
     function createThemeAndWatchForUpdates() {
         createStaticStyleOverrides();
-        createCustomDark();
         function runDynamicStyle() {
             createDynamicStyleOverrides();
             watchForUpdates();
