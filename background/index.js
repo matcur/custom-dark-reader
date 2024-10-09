@@ -2350,6 +2350,7 @@
         mode: 1,
         brightness: 100,
         contrast: 100,
+        assetsBrightness: 100,
         grayscale: 0,
         sepia: 0,
         useFont: false,

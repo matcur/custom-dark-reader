@@ -1402,7 +1402,7 @@
                     theme: {
                         mode: 1,
                         brightness: 110,
-                        videoOpacity: 30,
+                        assetsBrightness: 100,
                         contrast: 90,
                         grayscale: 20,
                         sepia: 10,
@@ -3994,14 +3994,14 @@
             name: getLocalMessage("contrast"),
             onChange: (value) => setConfig({contrast: value})
         });
-        const videoOpacity = m(UpDown, {
-            value: filterConfig.videoOpacity,
+        const assetsBrightness = m(UpDown, {
+            value: filterConfig.assetsBrightness,
             min: 0,
-            max: 100,
+            max: 200,
             step: 5,
-            default: 0,
-            name: getLocalMessage("videoOpacity"),
-            onChange: (value) => setConfig({videoOpacity: value})
+            default: 100,
+            name: getLocalMessage("assetsBrightness"),
+            onChange: (value) => setConfig({assetsBrightness: value})
         });
         const grayscale = m(UpDown, {
             value: filterConfig.grayscale,
@@ -4029,7 +4029,7 @@
                 onChange: (mode) => setConfig({mode})
             }),
             brightness,
-            videoOpacity,
+            assetsBrightness,
             contrast,
             sepia,
             grayscale,
@@ -4959,10 +4959,10 @@
         return `${v}%`;
     }
 
-    function VideoOpacity(props) {
+    function AssetsBrightness(props) {
         return m(
             ThemeControl,
-            {label: getLocalMessage("videOpacity")},
+            {label: getLocalMessage("assetsBrightness")},
             m(Slider, {
                 value: props.value,
                 min: 0,
@@ -5110,7 +5110,7 @@
     const DEFAULT_THEME = {
         mode: 1,
         brightness: 100,
-        videoOpacity: 30,
+        assetsBrightness: 100,
         contrast: 100,
         grayscale: 0,
         sepia: 0,
@@ -5509,9 +5509,9 @@
                 value: theme.brightness,
                 onChange: (v) => onChange({brightness: v})
             }),
-            m(VideoOpacity, {
-                value: theme.videoOpacity,
-                onChange: (v) => onChange({videoOpacity: v})
+            m(AssetsBrightness, {
+                value: theme.assetsBrightness,
+                onChange: (v) => onChange({assetsBrightness: v})
             }),
             m(Contrast, {
                 value: theme.contrast,
@@ -6050,9 +6050,9 @@
                 value: theme.brightness,
                 onChange: (v) => change({brightness: v})
             }),
-            m(VideoOpacity, {
-                value: theme.videoOpacity,
-                onChange: (v) => change({videoOpacity: v})
+            m(AssetsBrightness, {
+                value: theme.assetsBrightness,
+                onChange: (v) => change({assetsBrightness: v})
             }),
             m(Contrast, {
                 value: theme.contrast,
@@ -6089,7 +6089,7 @@
             contrast: DEFAULT_THEME.contrast,
             sepia: DEFAULT_THEME.sepia,
             grayscale: DEFAULT_THEME.grayscale,
-            videoOpacity: DEFAULT_THEME.videoOpacity
+            assetsBrightness: DEFAULT_THEME.assetsBrightness,
         };
         return m(
             Array,

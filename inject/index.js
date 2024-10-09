@@ -1906,8 +1906,8 @@
             )};`
         );
         lines.push(
-          `video {
-            opacity: ${theme.videoOpacity / 100};
+          `video, img {
+            filter: brightness(${theme.assetsBrightness / 100});
           }`
         )
         lines.push("}");
